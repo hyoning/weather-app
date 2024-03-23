@@ -1,20 +1,20 @@
-import React from 'react'
-import { Button } from 'react-bootstrap';
+import React from 'react';
 
-const WeatherButton = ({cities, setCity, getCurrentLocation}) => {
+const WeatherButton = ({cities, setCity, getCurrentLocation, selectedCity, setSelectedCity }) => {
+  const handleCityClick = (item) => {
+    setCity(item); // 선택된 도시 업데이트
+    setSelectedCity(item); // 선택된 도시 상태 업데이트
+  };
+
   return (
-    <div className='button_wrap'>
-         <Button variant="warning" onClick={() => getCurrentLocation()}>current</Button>{' '}
+    <div className="button_wrap">
+        <ul className="button_list">
+         <li className={selectedCity === "" ? "active" : ""} onClick={() => getCurrentLocation()}>current</li>
          {cities.map((item, index) =>(
-            <Button
-                variant="warning"
-                key={index}
-                onClick={() => setCity(item)}
-            >{item}
-            </Button>
+            <li className={selectedCity === item ? "active" : ""} key={index} onClick={() => handleCityClick(item)}>{item}</li>
          ))}
+         </ul>
     </div>
   )
 }
-
 export default WeatherButton

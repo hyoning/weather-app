@@ -4,6 +4,7 @@ import WeatherButton from './component/WeatherButton';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ClipLoader from "react-spinners/ClipLoader";
+import WeatherContent from './component/WeatherContent';
 
 const API_KEY = `3c4ba7444f7f53fc1aa950d1752f3d65`
 
@@ -16,7 +17,10 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("");
   const [loading, setLoading] = useState(false);
+  const [selectedCity, setSelectedCity] = useState(""); // 선택된 도시를 나타내는 상태
+
   const cities = ["paris","new york","tokyo","seoul"]
+
   const getWeatherByCurrentLocation = useCallback(async (lat, lon) => {
     try{
       let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`;
@@ -25,6 +29,7 @@ function App() {
       if (data.cod === 200){
         setWeather(data);
         setLoading(false); 
+        console.log(data)
       } else{
         throw new Error(data.message)
       }
@@ -44,6 +49,7 @@ function App() {
 
   const handleCurrentLocationClick = useCallback(() => {
     setLoading(true); // 현재 위치 버튼 클릭 시 로딩 상태를 true로 설정
+    setSelectedCity("");
     getCurrentLocation();
   }, [getCurrentLocation]);
 
@@ -76,13 +82,15 @@ function App() {
 
   return (
     <div className="wrap">
+      <div className="weather_title">Weather</div>
       {loading?
         <div className="container">
           <ClipLoader color="#1A2D92" loading={loading} size={150}/>
         </div>   : 
         <div className="container">
+          <WeatherButton cities={cities} setCity={setCity} getCurrentLocation={handleCurrentLocationClick} selectedCity={selectedCity} setSelectedCity={setSelectedCity}/>
           <WeatherBox weather={weather}/>
-          <WeatherButton cities={cities} setCity={setCity} getCurrentLocation={handleCurrentLocationClick}/>
+          <WeatherContent weather={weather}/>
         </div>
       }  
     </div>

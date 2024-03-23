@@ -7,23 +7,95 @@ body{
 }
 .container{
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap:20px;
+  padding-top:20px;
+}
+.weather_title{
+  width:100%;
+  position:sticky;
+  left:0;
+  top:0;
+  text-align:center;
+  padding-top:10px;
+  font-size:2em;
+  color:#fff;
+  font-weight: 600;
 }
 .weather-box{
-  background:#fff;
   box-sizing: border-box;
-  padding:10%;
-  border-radius: 30px;
+  padding:40px 0;
+  width:90%;
+  max-width:500px;
   overflow: hidden;
   text-align:center;
 }
+.weather-name,
+.weather-temp{
+  color:#222;
+}
+.weather-name{
+  font-size:1em;
+  line-height: 1;
+  font-weight: 600;
+}
+.weather-temp{
+  padding:10% 0 0;
+  font-weight: 700;
+  font-size: 2.2em;
+}
+.weather-tempInfo{
+  display: flex;
+  gap:10px;
+  justify-content: center;
+}
+.weather-dec{
+  padding-top:10%;
+  font-weight: 700;
+}
+.red{
+  color:#f22441;
+}
+.blue{
+  color: #0d6efd;
+}
 .button_wrap{
+  width:100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap:2px;
+}
+.button_list{
+  width:90%;
+  max-width:500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0;
+  text-align:center;
+  margin: 0;
+  background:#fff;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.button_wrap li{
+  width:20%;
+  list-style: none;
+  padding:0;
+  border-radius: 30px;
+  padding:10px 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+.button_wrap li.active{
+  background:#0d6efd;
+  color:#fff;
+  font-weight: 600;
+}
+
+@media (max-width:500px) {
+  .button_wrap li{
+    font-size: 3vw;
+  }
 }

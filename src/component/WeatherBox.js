@@ -1,13 +1,18 @@
 import React from 'react'
 
 const WeatherBox = ({weather}) => {
-    const temp = weather?.main.temp;
-    const fahrenheit = Math.round(temp * 9/5 + 32);
+   
     return (
-        <div className='weather-box'>
-            <div>{weather?.name}</div>
-            <h2>{temp}°C / {fahrenheit}°F</h2>
-            <h3>{weather?.weather[0].description}</h3>
+        <div className="weather-box">
+            <div className="weather-name">{weather?.name}</div>
+            <div className="weather-temp">{weather?.main.temp}°C</div>
+            <div className="weather-tempInfo">
+                <div>
+                    <span className="red">{weather?.main.temp_min}°C</span> / <span className="blue">{weather?.main.temp_max}°C</span>
+                </div>
+                <div>체감 온도 {weather?.main.feels_like}°C</div>
+            </div>
+            <div className="weather-dec">{weather?.weather[0].description}</div>
         </div>
     )
 }
