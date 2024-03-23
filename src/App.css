@@ -5,9 +5,6 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
-.wrap{
-
-}
 .container{
   display: flex;
   height: 100vh;
@@ -23,4 +20,10 @@ body{
   border-radius: 30px;
   overflow: hidden;
   text-align:center;
+}
+.button_wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:2px;
 }
