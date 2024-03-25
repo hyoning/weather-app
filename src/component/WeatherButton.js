@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WeatherButton = ({cities, setCity, getCurrentLocation, selectedCity, setSelectedCity }) => {
+const WeatherButton = ({cities, setCity, getCurrentLocation, selectedCity, setSelectedCity}) => {
   const handleCityClick = (item) => {
     setCity(item); // 선택된 도시 업데이트
     setSelectedCity(item); // 선택된 도시 상태 업데이트

@@ -1,16 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+img{
+  width:100%;
+}
 body{
-  background-image: url('https://img.freepik.com/free-vector/sun-light-with-clouds-sky-background_1017-38299.jpg');
+  background-color:#eee !important;
   width:100%;
   height:100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
-.container{
+.contain{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top:20px;
+  padding:20px 0 50px;
+
 }
 .weather_title{
   width:100%;
@@ -20,16 +25,28 @@ body{
   text-align:center;
   padding-top:10px;
   font-size:2em;
-  color:#fff;
+  color:#25478C;
   font-weight: 600;
 }
 .weather-box{
-  box-sizing: border-box;
+  margin:10px 0;
   padding:40px 0;
   width:90%;
-  max-width:500px;
   overflow: hidden;
   text-align:center;
+  background:#fff;
+  border-radius: 30px;
+}
+.weather-image{
+  width:150px;
+  background:#f7f7f7;
+  border-radius: 100%;
+  overflow: hidden;
+  margin:5% auto;
+  padding:15px;
+}
+.weather-image img{
+  width:100%;
 }
 .weather-name,
 .weather-temp{
@@ -38,10 +55,10 @@ body{
 .weather-name{
   font-size:1em;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 700;
 }
 .weather-temp{
-  padding:10% 0 0;
+  padding:0;
   font-weight: 700;
   font-size: 2.2em;
 }
@@ -49,16 +66,22 @@ body{
   display: flex;
   gap:10px;
   justify-content: center;
+  padding-bottom:5%;
 }
 .weather-dec{
-  padding-top:10%;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 1em;
+}
+.weather_feels,
+.weather_humidity{
+  font-weight: 400;
+  font-size: 0.8em;
 }
 .red{
   color:#f22441;
 }
 .blue{
-  color: #0d6efd;
+  color: #25478C;
 }
 .button_wrap{
   width:100%;
@@ -68,7 +91,6 @@ body{
 }
 .button_list{
   width:90%;
-  max-width:500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,9 +109,10 @@ body{
   padding:10px 0;
   font-weight: 400;
   cursor: pointer;
+  list-style: none;
 }
 .button_wrap li.active{
-  background:#0d6efd;
+  background:#25478C;
   color:#fff;
   font-weight: 600;
 }
@@ -99,3 +122,55 @@ body{
     font-size: 3vw;
   }
 }
+.weatherContents{
+  width:90%;
+}
+.weatherWeek-title{
+  font-size:1em;
+  margin:20px 0 10px;
+  text-align:left;
+}
+.weatherWeek-box{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding:0;
+  margin:0;
+  gap:10px;
+}
+.weatherWeek-box li{
+  width:20%;
+  background:#fff;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:20px 5px;
+}
+.weatherWeek-day{
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dayIdx{
+  font-size:0.8rem;
+  font-weight: 400;
+}
+.weatherWeek-images{
+  background-color: #f7f7f7;
+  border-radius: 100%;
+  padding:10px;
+  width:50px;
+  height: 50px;
+  margin:10px 0;
+}
+.weatherWeek-temp{
+  font-size:1em;
+  font-weight: 700;
+  margin-bottom:5%;
+} 
